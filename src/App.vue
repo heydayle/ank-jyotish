@@ -17,11 +17,11 @@
     <div class="container mx-auto px-4 py-12 relative z-10">
       <header class="text-center mb-12">
         <h1
-          class="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-200">
-          Khám Phá Số Đường Đời Của Bạn
+          class="text-4xl md:text-5xl pb-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-200">
+          Thần Số Học
         </h1>
         <p class="text-lg text-purple-200 max-w-2xl mx-auto">
-          Nhập ngày sinh của bạn để tìm hiểu về số đường đời và ý nghĩa của nó trong thần số học
+          Nhập ngày sinh để tìm hiểu về đường đời và ý nghĩa trong thần số học
         </p>
       </header>
 
@@ -48,7 +48,7 @@
               </path>
             </svg>
           </span>
-          <span>{{ isCalculating ? 'Đang Tính Toán...' : 'Tính Số Đường Đời' }}</span>
+          <span>{{ isCalculating ? 'Đang Tính Toán...' : 'Kiểm tra' }}</span>
         </button>
       </div>
 
