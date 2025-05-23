@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Background from './Background.vue';
-import { useAnalyst } from '@/composables/useAnalyst';
+import Background from './Background.vue'
+import { useAnalyst } from '@/composables/useAnalyst'
 
 const {
   birthdate,
@@ -12,9 +12,9 @@ const {
   isValid,
   compatibleZodiac,
   numberMeaning,
+  summarybyNumber,
   calculateLifePathNumber,
 } = useAnalyst()
-
 </script>
 <template>
   <div
@@ -75,7 +75,8 @@ const {
                 class="w-32 h-32 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center relative overflow-hidden">
                 <div class="absolute inset-0 bg-purple-900/20"></div>
                 <transition name="number">
-                  <span class="text-6xl font-bold text-white relative z-10">{{ lifePathNumber }}</span>
+                  <span v-if="lifePathNumber" class="text-6xl font-bold text-white relative z-10">{{ lifePathNumber
+                  }}</span>
                 </transition>
               </div>
               <div class="absolute -inset-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur opacity-30">
@@ -84,12 +85,14 @@ const {
           </div>
 
           <div class="mt-6">
-            <h3 class="text-xl font-semibold mb-3 text-purple-200">Ý Nghĩa Của Số {{ lifePathNumber }}</h3>
+            <h3 class="text-xl font-semibold mb-3 text-purple-200">
+              Ý Nghĩa Của Số {{ lifePathNumber }}
+            </h3>
             <p class="text-purple-100 leading-relaxed">{{ numberMeaning }}</p>
           </div>
 
           <!-- Optional zodiac section -->
-          <div class="mt-8 pt-6 border-t border-purple-600/30">
+          <div id="zodiac" class="mt-8 pt-6 border-t border-purple-600/30">
             <div class="flex items-center">
               <div class="w-10 h-10 rounded-full bg-purple-700/50 flex items-center justify-center mr-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24"
@@ -102,12 +105,25 @@ const {
             </div>
             <p class="mt-2 text-purple-100">{{ compatibleZodiac }}</p>
           </div>
+          <!-- Summary section -->
+          <div id="summary" class="mt-8 pt-6 border-t border-purple-600/30">
+            <div class="flex items-center">
+              <div class="w-10 h-10 rounded-full bg-purple-700/50 flex items-center justify-center mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+              <span class="text-lg font-medium text-purple-200">Tổng quan</span>
+            </div>
+            <p class="mt-2 text-purple-100">{{ summarybyNumber }}</p>
+          </div>
         </div>
       </transition>
     </div>
   </div>
 </template>
-
 
 <style>
 /* Base styles */
@@ -148,7 +164,9 @@ body {
 /* Transitions */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
 .fade-enter-from,
