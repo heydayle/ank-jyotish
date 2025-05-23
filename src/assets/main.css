@@ -1,5 +1,6 @@
-@import './base.css';
 @import 'tailwindcss';
+@import './base.css';
+@import './datepicker.css';
 
 #app {
   margin: 0 auto;
