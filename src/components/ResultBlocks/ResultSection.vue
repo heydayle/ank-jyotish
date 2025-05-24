@@ -1,12 +1,20 @@
 <script setup lang="ts">
-// No additional logic is needed for now
+import MainNumber from './MainNumber.vue'
+import MeaningOfNumber from './MeaningOfNumber.vue'
+import CompatibleZodiac from './CompatibleZodiac.vue'
+
+defineProps<{
+  isMasterNumber: boolean
+  lifePathNumber: number
+  numberMeaning: string
+  compatibleZodiac: string
+}>()
+
 </script>
 <template>
   <section class="result-section">
-    <h2 class="section-title">Result Section</h2>
-    <div class="content">
-      <!-- Add your content here -->
-    </div>
+    <MainNumber :isMasterNumber :lifePathNumber />
+    <MeaningOfNumber :lifePathNumber :numberMeaning />
+    <CompatibleZodiac :compatibleZodiac />
   </section>
 </template>
-

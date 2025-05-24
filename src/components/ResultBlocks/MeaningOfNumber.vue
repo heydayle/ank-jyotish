@@ -6,7 +6,7 @@ defineProps<{
 
 </script>
 <template>
-  <div class="mt-6">
+  <div class="mt-6 pt-6 border-t border-purple-600/30">
     <h3 class="text-xl font-semibold mb-3 text-purple-200">
       Ý Nghĩa Của Số {{ lifePathNumber }}
     </h3>

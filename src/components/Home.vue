@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Background from './Background.vue'
+import ResultSection from './ResultBlocks/ResultSection.vue'
 import { useAnalyst } from '@/composables/useAnalyst'
 
 const {
@@ -62,49 +63,8 @@ const {
       <transition name="fade">
         <div v-if="showResult"
           class="max-w-2xl mx-auto bg-purple-900/40 backdrop-blur-md rounded-lg p-8 border border-purple-500/30 shadow-lg">
-          <div class="flex flex-col items-center mb-6">
-            <div class="text-center md:text-left">
-              <h2 class="text-2xl font-bold mb-2 text-purple-200">Số Chủ Đạo Của Bạn Là</h2>
-              <div class="flex items-center justify-center md:justify-start">
-                <span v-if="isMasterNumber"
-                  class="ml-2 px-2 py-1 bg-purple-700/50 rounded-md text-xs text-purple-200">Số Chủ</span>
-              </div>
-            </div>
-            <div class="relative mb-6 md:mb-0 md:mr-8">
-              <div
-                class="w-32 h-32 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center relative overflow-hidden">
-                <div class="absolute inset-0 bg-purple-900/20"></div>
-                <transition name="number">
-                  <span v-if="lifePathNumber" class="text-6xl font-bold text-white relative z-10">{{ lifePathNumber
-                  }}</span>
-                </transition>
-              </div>
-              <div class="absolute -inset-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur opacity-30">
-              </div>
-            </div>
-          </div>
+          <ResultSection :isMasterNumber :lifePathNumber :numberMeaning :compatibleZodiac :summarybyNumber />
 
-          <div class="mt-6">
-            <h3 class="text-xl font-semibold mb-3 text-purple-200">
-              Ý Nghĩa Của Số {{ lifePathNumber }}
-            </h3>
-            <p class="text-purple-100 leading-relaxed">{{ numberMeaning }}</p>
-          </div>
-
-          <!-- Optional zodiac section -->
-          <div id="zodiac" class="mt-8 pt-6 border-t border-purple-600/30">
-            <div class="flex items-center">
-              <div class="w-10 h-10 rounded-full bg-purple-700/50 flex items-center justify-center mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                </svg>
-              </div>
-              <span class="text-lg font-medium text-purple-200">Cung Hoàng Đạo Tương Thích</span>
-            </div>
-            <p class="mt-2 text-purple-100">{{ compatibleZodiac }}</p>
-          </div>
           <!-- Summary section -->
           <div id="summary" class="mt-8 pt-6 border-t border-purple-600/30">
             <div class="flex items-center">
