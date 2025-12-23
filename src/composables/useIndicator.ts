@@ -12,7 +12,8 @@ const useAnalyst = (): UseIndicator => {
   })
 
   return {
-    ...toRef(state),
+    isLoading: toRef(state.isLoading),
+    isShowResult: toRef(state.isShowResult),
   }
 }
 
